@@ -4,9 +4,9 @@ import cats.Semigroup
 
 import org.specs2.mutable.Specification
 
-class OperationsSpec extends Specification with CatsEffect {
+class SemigroupSpec extends Specification with CatsEffect {
   "scala-examples" should {
-    "make sure cats semigroup combines values - 1" in {
+    "make sure semigroup combines" in {
       Semigroup[Int].combine(1, 2) mustEqual 3
       Semigroup[List[Int]].combine(List(1, 2, 3), List(4, 5, 6)) mustEqual List(1,2,3,4,5,6)
       Semigroup[Option[Int]].combine(Option(1), Option(2)) mustEqual(Option(3))
@@ -16,7 +16,7 @@ class OperationsSpec extends Specification with CatsEffect {
   }
 
   "scala-examples" should {
-    "make sure cats semigroup combines values - 2" in {
+    "make sure semigroup combines maps" in {
       val aMap = Map("foo" -> Map("bar" -> 5))
       val anotherMap = Map("foo" -> Map("bar" -> 6))
       val combinedMap = Semigroup[Map[String, Map[String, Int]]].combine(aMap, anotherMap)
@@ -26,7 +26,7 @@ class OperationsSpec extends Specification with CatsEffect {
   }
 
   "scala-examples" should {
-    "make sure cats semigroup combines values - 3" in {
+    "make sure semigroup combines with special operators" in {
       import cats.implicits.catsSyntaxSemigroup
 
       val one: Option[Int] = Option(1)
