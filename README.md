@@ -1,4 +1,4 @@
-# 😺😺😺 Collatz-x 😺😺😺
+# Cats-x 😺
 
 Exploratory project using Scala 3 Cats library
 
