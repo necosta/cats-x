@@ -13,19 +13,13 @@ class SemigroupSpec extends Specification with CatsEffect {
       Semigroup[Option[Int]].combine(Option(1), None) mustEqual(Option(1))
       Semigroup[Int => Int].combine(_ + 1, _ * 10).apply(6) mustEqual(67)
     }
-  }
-
-  "scala-examples" should {
-    "make sure semigroup combines maps" in {
+    "make sure semigroup combines a map" in {
       val aMap = Map("foo" -> Map("bar" -> 5))
       val anotherMap = Map("foo" -> Map("bar" -> 6))
       val combinedMap = Semigroup[Map[String, Map[String, Int]]].combine(aMap, anotherMap)
 
       combinedMap.get("foo") mustEqual(Some(Map("bar" -> 11)))
     }
-  }
-
-  "scala-examples" should {
     "make sure semigroup combines with special operators" in {
       import cats.implicits.catsSyntaxSemigroup
 
@@ -39,5 +33,4 @@ class SemigroupSpec extends Specification with CatsEffect {
       two |+| n mustEqual(Option(2))
     }
   }
-
 }

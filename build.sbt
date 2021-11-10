@@ -8,4 +8,7 @@ lazy val root = (project in file("."))
     scalaVersion := Scala3
   )
 
-
+ThisBuild / scalacOptions ++= Seq(
+  "-Ykind-projector:underscores",
+  //  "-Ykind-projector",
+)
